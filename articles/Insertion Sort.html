@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Insertion Sort</title>
+    <style>
+        body {
+            background-color: #2e3267;
+            /* color: #ffffff; */
+            color: black;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            /* color: black; */
+        }
+
+        .article {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 20px;
+            /* background-color: #3c3f74; */
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        .article h2 {
+            /* color: #ffffff; */
+            color: black;
+        }
+
+        .article p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .article ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        .article li {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .code {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .code pre {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .btn {
+            background-color: #2e3267;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #3d436f;
+        }
+
+        a {
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <h1>Insertion Sort</h1>
+        <div class="article">
+            <h2>Overview</h2>
+            <p>Insertion Sort is a simple comparison-based sorting algorithm that works by dividing the array into two
+                parts - the sorted part and the unsorted part. It repeatedly takes an element from the unsorted part
+                and inserts it into its correct position within the sorted part. It is called "Insertion Sort" because
+                it involves inserting an element into its correct position in the sorted part of the array.</p>
+            <h2>Algorithm</h2>
+            <p>The Insertion Sort algorithm can be summarized in the following steps:</p>
+            <ul>
+                <li>Start from the second element of the array, as the first element is already considered sorted.</li>
+                <li>Take the current element from the unsorted part of the array.</li>
+                <li>Compare it with the elements in the sorted part of the array, moving from right to left.</li>
+                <li>If the current element is smaller, shift the sorted elements to the right to create space for the
+                    current element.</li>
+                <li>Insert the current element into its correct position within the sorted part of the array.</li>
+                <li>Repeat the above steps until the entire array is sorted.</li>
+            </ul>
+            <h2>Time Complexity</h2>
+            <p>The time complexity of Insertion Sort is O(n^2), where n is the number of elements in the array. It is
+                a comparison-based sorting algorithm that has a higher time complexity compared to more efficient
+                sorting algorithms such as Merge Sort or Quick Sort. However, it performs well for small arrays or
+                partially sorted arrays, making it useful in certain scenarios.</p>
+            <h2>Applications</h2>
+            <p>Insertion Sort can be useful in certain scenarios, such as:</p>
+            <ul>
+                <li>Sorting small arrays or lists</li>
+                <li>Sorting partially sorted arrays or lists</li>
+                <li>As a simple sorting algorithm for educational purposes</li>
+                <li>As a part of a more complex sorting algorithm or algorithmic approach</li>
+            </ul>
+            <div class="code">
+                <h2>Insertion Sort in C++</h2>
+                <pre><code>
+    #include &lt;iostream&gt;
+    using namespace std;
+    
+    void insertionSort(int arr[], int size) {
+        for (int i = 1; i < size; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            // Move elements of arr[0..i-1] that are greater than key
+            // to one position ahead of their current position
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+    }
+    
+    int main() {
+        int arr[] = {5, 2, 9, 1, 5, 6};
+        int size = sizeof(arr) / sizeof(arr[0]);
+        insertionSort(arr, size);
+        cout << "Sorted array: ";
+        for (int i = 0; i < size; i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+        return 0;
+    }
+                </code></pre>
+            </div>
+            <a href="../Insertion Sort/index.html">
+                <button class="btn"> Visualize </button>
+            </a>
+        </div>
+    </body>
+
+</body>
+
+</html>

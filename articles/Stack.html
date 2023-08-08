@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stack (Array Implementation)</title>
+    <style>
+        body {
+            background-color: #2e3267;
+            /* color: #ffffff; */
+            color: black;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            /* color: black; */
+        }
+
+        .article {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 20px;
+            /* background-color: #3c3f74; */
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        .article h2 {
+            /* color: #ffffff; */
+            color: black;
+        }
+
+        .article p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .article ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        .article li {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .code {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .code pre {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .btn {
+            background-color: #2e3267;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #3d436f;
+        }
+
+        a {
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Stack</h1>
+    <div class="article">
+        <h2>Overview</h2>
+        <p>A Stack is a linear data structure that follows the Last-In-First-Out (LIFO) principle, where the last
+            element inserted into the stack is the first one to be removed. It can be imagined as a collection of
+            elements arranged one on top of the other, and elements can only be added or removed from the top of the
+            stack. Stacks can be implemented using arrays or linked lists, and they are widely used in computer
+            programming and various applications.</p>
+        <h2>Operations</h2>
+        <p>A stack typically supports the following operations:</p>
+        <ul>
+            <li><strong>Push:</strong> Insert an element at the top of the stack.</li>
+            <li><strong>Pop:</strong> Remove the element from the top of the stack.</li>
+            <li><strong>Peek (or Top):</strong> Retrieve the element from the top of the stack without removing
+                it.</li>
+            <li><strong>IsEmpty:</strong> Check if the stack is empty or not.</li>
+            <li><strong>IsFull:</strong> Check if the stack is full (applicable for stack implementations using
+                arrays).</li>
+        </ul>
+        <h2>Applications</h2>
+        <p>Stacks have a wide range of applications in computer programming and various domains, including:</p>
+        <ul>
+            <li>Expression evaluation and syntax parsing</li>
+            <li>Function call and recursion management in programming languages</li>
+            <li>Undo/Redo functionality in applications</li>
+            <li>Backtracking algorithms</li>
+            <li>Memory management in computer systems</li>
+            <li>Browser history management</li>
+            <li>Implementing algorithms like Depth-First Search (DFS) and Backtracking</li>
+        </ul>
+        <div class="code">
+            <h2>Stack Implementation in Python</h2>
+            <pre><code>
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, item):
+        self.stack.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.stack.pop()
+        else:
+            return None
+
+    def peek(self):
+        if not self.is_empty():
+            return self.stack[-1]
+        else:
+            return None
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    def is_full(self):
+        # Stack implemented using a dynamic list in Python
+        return False
+
+    def size(self):
+        return len(self.stack)
+
+# Example usage
+stack = Stack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+print("Stack:", stack.stack)  # Output: Stack: [1, 2, 3]
+print("Peek:", stack.peek())  # Output: Peek: 3
+stack.pop()
+print("Stack after pop:", stack.stack)  # Output: Stack after pop: [1, 2]
+print("Is empty?", stack.is_empty())  # Output: Is empty? False
+print("Size:", stack.size())  # Output: Size: 2
+            </code></pre>
+        </div>
+        <a href="../Stack Array/index.html">
+            <button class="btn"> Visualize </button>
+        </a>
+    </div>
+</body>
+
+
+</html>

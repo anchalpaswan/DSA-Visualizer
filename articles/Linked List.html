@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Linked List</title>
+    <style>
+        body {
+            background-color: #2e3267;
+            /* color: #ffffff; */
+            color: black;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            /* color: black; */
+        }
+
+        .article {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 20px;
+            /* background-color: #3c3f74; */
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        .article h2 {
+            /* color: #ffffff; */
+            color: black;
+        }
+
+        .article p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .article ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        .article li {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .code {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .code pre {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .btn {
+            background-color: #2e3267;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #3d436f;
+        }
+
+        a {
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Linked List</h1>
+    <div class="article">
+        <h2>Overview</h2>
+        <p>A linked list is a data structure that consists of a collection of nodes, where each node contains data
+            and a reference (or pointer) to the next node in the sequence. Linked lists are used to store and manage
+            collections of data elements that are not necessarily stored in contiguous memory locations. They allow
+            dynamic allocation of memory and provide flexibility in inserting, deleting, and modifying elements
+            compared to other data structures like arrays.</p>
+        <h2>Types of Linked Lists</h2>
+        <p>There are several types of linked lists, including:</p>
+        <ul>
+            <li><strong>Singly Linked List:</strong> Each node contains data and a pointer to the next node in the
+                list.</li>
+            <li><strong>Doubly Linked List:</strong> Each node contains data, a pointer to the next node, and a
+                pointer to the previous node in the list, allowing traversal in both directions.</li>
+            <li><strong>Circular Linked List:</strong> A variation of singly or doubly linked list where the last
+                node's next pointer points back to the first node, forming a circular loop.</li>
+        </ul>
+        <h2>Operations</h2>
+        <p>A linked list typically supports the following operations:</p>
+        <ul>
+            <li><strong>Insertion:</strong> Insert an element at the beginning, end, or a specific position in the
+                list.</li>
+            <li><strong>Deletion:</strong> Delete an element from the list based on its value or position.</li>
+            <li><strong>Traversal:</strong> Traverse the list to access and process each node or element.</li>
+            <li><strong>Search:</strong> Search for a specific element in the list.</li>
+            <li><strong>Modification:</strong> Modify the value of a node in the list.</li>
+            <li><strong>Size:</strong> Get the number of elements in the list.</li>
+        </ul>
+        <h2>Applications</h2>
+        <p>Linked lists are widely used in various applications and scenarios, including:</p>
+        <ul>
+            <li>Implementing other data structures like stacks and queues</li>
+            <li>Dynamic memory allocation and deallocation</li>
+            <li>Managing large data sets and databases</li>
+            <li>Implementing algorithms like LRU (Least Recently Used) cache replacement</li>
+            <li>Handling sparse data and representing graphs</li>
+            <li>Managing system resources and memory</li>
+            <li>Implementation of certain algorithms like merge sort and reverse algorithms</li>
+        </ul>
+        <div class="code">
+            <h2>Linked List Implementation in C++</h2>
+
+
+<pre><code>
+#include <iostream>
+
+// Node class to represent a node in the linked list
+class Node {
+public:
+    int data;
+    Node* next;
+
+    // Constructor
+    Node(int value) : data(value), next(nullptr) {}
+};
+
+// Linked List class
+class LinkedList {
+public:
+    // Constructor
+    LinkedList() : head(nullptr) {}
+
+    // Insert a new node at the beginning of the list
+    void insertAtBeginning(int value) {
+        Node* newNode = new Node(value);
+        newNode->next = head;
+        head = newNode;
+    }
+
+    // Delete a node with the given value
+    void deleteNode(int value) {
+        if (head == nullptr) {
+            std::cout << "List is empty" << std::endl;
+            return;
+        }
+
+        if (head->data == value) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+            return;
+        }
+
+        Node* current = head;
+        Node* prev = nullptr;
+
+        while (current != nullptr && current->data != value) {
+            prev = current;
+            current = current->next;
+        }
+
+        if (current == nullptr) {
+            std::cout << "Element not found" << std::endl;
+            return;
+        }
+
+        prev->next = current->next;
+        delete current;
+    }
+
+    // Display the linked list
+    void display() {
+        Node* current = head;
+        while (current != nullptr) {
+            std::cout << current->data << " -> ";
+            current = current->next;
+        }
+        std::cout << "null" << std::endl;
+    }
+
+private:
+    Node* head;
+};
+
+int main() {
+    // Create a new linked list
+    LinkedList list;
+
+    // Insert nodes
+    list.insertAtBeginning(3);
+    list.insertAtBeginning(2);
+    list.insertAtBeginning(1);
+
+    // Delete node with value 2
+    list.deleteNode(2);
+
+    // Display the linked list
+    list.display();
+
+    return 0;
+}
+    </code></pre>
+        </div>
+        <a href="../index.html">
+            <button class="btn"> Visualize </button>
+        </a>
+    </div>
+</body>
+
+</html>

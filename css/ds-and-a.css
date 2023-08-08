@@ -1,0 +1,33 @@
+.ds-and-a {
+    background: var(--color-bg1);
+    box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.5); 
+}
+
+.ds-and-a_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.ds-and-a_topics {
+    background: #ffffff;
+    padding: 0px 0px 2px;
+    border: 1px solid #ffffff;
+    position: relative;
+    border-radius: 15px;
+}
+
+.ds-and-a_topics:hover {
+    background-color: #d3cccc;
+}
+
+.ds-and-a_topics-image img {
+    border-radius :15px 15px 0px 0px;
+}
+
+.ds-and-a_topics-info * {
+    text-align: center;
+    margin-top: 1.4rem;
+    color: #000000;
+    padding: 3px;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Breadth-First Search</title>
+    <style>
+        body {
+            background-color: #2e3267;
+            /* color: #ffffff; */
+            color: black;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            /* color: black; */
+        }
+
+        .article {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 20px;
+            /* background-color: #3c3f74; */
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        .article h2 {
+            /* color: #ffffff; */
+            color: black;
+        }
+
+        .article p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .article ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        .article li {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .code {
+            background-color: #f7f7f7;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .code pre {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .btn {
+            background-color: #2e3267;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #3d436f;
+        }
+
+        a {
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Breadth-First Search</h1>
+    <div class="article">
+        <h2>Overview</h2>
+        <p>Breadth-First Search (BFS) is a graph traversal algorithm that explores a graph or tree data structure in
+            a breadthward motion, visiting all the vertices at the current level before moving to the next level. It
+            uses a queue data structure to keep track of the vertices to visit.</p>
+        <h2>Algorithm</h2>
+        <p>The BFS algorithm can be implemented using a queue. Here is the iterative approach:</p>
+        <ul>
+            <li>Choose a starting vertex and enqueue it.</li>
+            <li>While the queue is not empty:</li>
+            <ul>
+                <li>Dequeue a vertex from the queue and visit it.</li>
+                <li>If the visited vertex has unvisited neighbors, enqueue them.</li>
+            </ul>
+            <li>Repeat until the queue is empty.</li>
+        </ul>
+        <h2>Applications</h2>
+        <p>BFS has many applications, including:</p>
+        <ul>
+            <li>Finding the shortest path between two vertices in an unweighted graph</li>
+            <li>Web crawling</li>
+            <li>Social network analysis</li>
+        </ul>
+
+        <div class="code">
+            <h2>Iterative BFS in C++</h2>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+void bfs(vector&lt;vector&lt;int&gt;&gt; &graph, int start, vector&lt;bool&gt; &visited) {
+    queue&lt;int&gt; q;
+    q.push(start);
+    visited[start] = true;
+    while (!q.empty()) {
+        int vertex = q.front();
+        q.pop();
+        cout &lt;&lt; vertex &lt;&lt; endl;
+        for (int i = 0; i &lt; graph[vertex].size(); i++) {
+            int neighbor = graph[vertex][i];
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                q.push(neighbor);
+            }
+        }
+    }
+}
+
+int main() {
+    // Example graph represented as an adjacency list
+    vector&lt;vector&lt;int&gt;&gt; graph = {{1, 2}, {0, 3}, {0}, {1, 4}, {3}};
+    vector&lt;bool&gt; visited(graph.size(), false);
+    bfs(graph, 0, visited);
+    return 0;
+}
+            </code></pre>
+        </div>
+        <a href="../Graph BFS/index.html">
+            <button class="btn"> Visualize </button>
+        </a>
+    </div>
+
+</body>
+
+</html>
